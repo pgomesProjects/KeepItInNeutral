@@ -1,10 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Cinemachine;
 using TMPro;
 
 public class Speedometer : MonoBehaviour
 {
+    [SerializeField] private PlayerController playerController;
+    [SerializeField] private CinemachineVirtualCamera playerCam;
+
+    [SerializeField] private float minFOV = 50;
+    [SerializeField] private float maxFOV = 70;
+    private float cameraFOV;
+
     //Min and Max Z rotation values
     private const float MIN_SPEED_ANGLE = 210;
     private const float MAX_SPEED_ANGLE = -20;
@@ -12,7 +20,9 @@ public class Speedometer : MonoBehaviour
     private Transform needleTransform;
     private Transform speedLabelTemplateTransform;
 
-    private float speedMax;
+    [SerializeField] private float startingSpeed = 20;
+    [SerializeField] private float speedMax;
+    
     private float speed;
 
     private void Awake()
@@ -21,18 +31,20 @@ public class Speedometer : MonoBehaviour
         speedLabelTemplateTransform = transform.Find("SpeedLabelTemplate");
         speedLabelTemplateTransform.gameObject.SetActive(false);
 
-        speed = 0;
-        speedMax = 200;
+        speed = startingSpeed;
 
         CreateSpeedLabels();
+        UpdateCameraFOV();
     }
 
     // Update is called once per frame
     void Update()
     {
-        //speed += 30f * Time.deltaTime;
-
+        speed += playerController.GetAcceleration() * Time.deltaTime;
         speed = Mathf.Clamp(speed, 0, speedMax);
+
+        //Change camera FOV
+        UpdateCameraFOV();
 
         //Rotate needle
         needleTransform.eulerAngles = new Vector3(0, 0, GetSpeedRotation());
@@ -67,7 +79,7 @@ public class Speedometer : MonoBehaviour
             speedLabelTransform.gameObject.SetActive(true);
         }
 
-        //Set the needle as the last sibling so that it gets drawn over the speed labels
+        //Set the needle as the last sibling so that it gets drawn over the e finespeed labels
         needleTransform.SetAsLastSibling();
     }
 
@@ -79,4 +91,16 @@ public class Speedometer : MonoBehaviour
 
         return MIN_SPEED_ANGLE - speedNormalized * totalAngleSize;
     }
+
+    private void UpdateCameraFOV()
+    {
+        if (speed != 0)
+        {
+            playerCam.m_Lens.FieldOfView = minFOV + ((maxFOV - minFOV) / (speedMax / speed));
+        }
+        else
+            playerCam.m_Lens.FieldOfView = minFOV;
+    }
+
+    public float GetSpeed() => speed;
 }
