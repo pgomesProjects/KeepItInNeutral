@@ -8,14 +8,17 @@ public class LevelManager : MonoBehaviour
     public static LevelManager instance;
 
     [SerializeField] private GameObject gameOverScreen;
+    private bool isGameActive;
 
     private void Awake()
     {
         instance = this;
+        isGameActive = true;
     }
 
     public void GameOver()
     {
+        isGameActive = false;
         Time.timeScale = 0.0f;
         gameOverScreen.SetActive(true);
 
@@ -30,4 +33,5 @@ public class LevelManager : MonoBehaviour
         Time.timeScale = 1.0f;
     }
 
+    public bool IsGameActive() => isGameActive;
 }
