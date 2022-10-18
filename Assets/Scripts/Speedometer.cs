@@ -48,6 +48,9 @@ public class Speedometer : MonoBehaviour
 
         //Rotate needle
         needleTransform.eulerAngles = new Vector3(0, 0, GetSpeedRotation());
+
+        //Check for game over
+        CheckForGameOver();
     }
 
     private void CreateSpeedLabels()
@@ -100,6 +103,13 @@ public class Speedometer : MonoBehaviour
         }
         else
             playerCam.m_Lens.FieldOfView = minFOV;
+    }
+
+    private void CheckForGameOver()
+    {
+        //If the speed reaches 0 or maximum, game over
+        if (speed <= 0 || speed >= speedMax)
+            LevelManager.instance.GameOver();
     }
 
     public float GetSpeed() => speed;

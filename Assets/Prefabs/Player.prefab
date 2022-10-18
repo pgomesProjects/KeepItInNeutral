@@ -53,6 +53,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerController: {fileID: 7617312206823387880}
+  playerCam: {fileID: 0}
+  minFOV: 50
+  maxFOV: 70
   startingSpeed: 20
   speedMax: 100
 --- !u!1 &7617312206823387893
@@ -268,7 +271,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zRange: 4
   speed: 20
-  acceleration: 1
+  defaultAcceleration: 1
 --- !u!54 &7617312206823387886
 Rigidbody:
   m_ObjectHideFlags: 0

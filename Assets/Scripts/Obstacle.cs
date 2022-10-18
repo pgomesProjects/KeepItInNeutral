@@ -8,7 +8,7 @@ public enum ObstacleType { Decelerator, Accelerator, Visual }
 public class Obstacle : MonoBehaviour
 {
     public ObstacleType obstacleType;
-    public UnityEvent visualEvent;
+    [SerializeField] CAMEFFECT visualEvent;
 
     [SerializeField] private float accelerationChange;
     [SerializeField] private float changeSeconds;
@@ -40,4 +40,5 @@ public class Obstacle : MonoBehaviour
     public bool DestroyOnCollide() => destroyOnCollision;
     public float GetAccelerationChange() => accelerationChange;
     public float GetChangeSeconds() => changeSeconds;
+    public CAMEFFECT GetVisualEvent() => visualEvent;
 }

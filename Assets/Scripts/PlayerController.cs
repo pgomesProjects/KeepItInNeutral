@@ -12,6 +12,7 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField] private float defaultAcceleration = 1;
     private float currentAcceleration;
+    private IEnumerator currentObstacleCoroutine;
 
     // Start is called before the first frame update
     void Start()
@@ -48,17 +49,23 @@ public class PlayerController : MonoBehaviour
         if (other.CompareTag("Obstacle"))
         {
             Obstacle currentObstacle = other.GetComponent<Obstacle>();
+            
+            if(currentObstacleCoroutine != null)
+                StopCoroutine(currentObstacleCoroutine);
 
             //Act accordingly based on the type of obstacle
             switch (currentObstacle.obstacleType)
             {
                 case ObstacleType.Decelerator:
-                    StartCoroutine(ChangeCarAcceleration(currentObstacle));
+                    currentObstacleCoroutine = ChangeCarAcceleration(currentObstacle);
+                    StartCoroutine(currentObstacleCoroutine);
                     break;
                 case ObstacleType.Accelerator:
-                    StartCoroutine(ChangeCarAcceleration(currentObstacle));
+                    currentObstacleCoroutine = ChangeCarAcceleration(currentObstacle);
+                    StartCoroutine(currentObstacleCoroutine);
                     break;
                 case ObstacleType.Visual:
+                    FindObjectOfType<VisualEffectsManager>().ShowEffect(currentObstacle.GetVisualEvent());
                     break;
             }
 
@@ -89,7 +96,8 @@ public class PlayerController : MonoBehaviour
         currentAcceleration = endAcceleration;
 
         //Slowly bring the player back to default acceleration
-        StartCoroutine(ReturnToDefaultAcceleration(5));
+        currentObstacleCoroutine = ReturnToDefaultAcceleration(5);
+        StartCoroutine(currentObstacleCoroutine);
     }
 
     IEnumerator ReturnToDefaultAcceleration(float seconds)
