@@ -26,10 +26,13 @@ public class Obstacle : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.position -= new Vector3(obstacleSpeed, 0, 0) * Time.deltaTime;
+        if (LevelManager.instance.IsGameActive())
+        {
+            transform.position -= new Vector3(obstacleSpeed, 0, 0) * Time.deltaTime;
 
-        if(transform.position.x <= destroyX)
-            Destroy(gameObject);
+            if (transform.position.x <= destroyX)
+                Destroy(gameObject);
+        }
     }
 
     public void SetMoveSpeed(float speed)

@@ -26,7 +26,6 @@ public class RoadScroll : MonoBehaviour
         UpdateScrollSpeed();
         UpdateObstacleSpeeds();
         offset += currentScrollSpeed * Time.deltaTime;
-        roadMat.mainTextureOffset = new Vector2(0, -offset);
     }
 
     private void UpdateObstacleSpeeds()

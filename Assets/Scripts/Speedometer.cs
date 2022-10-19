@@ -40,17 +40,20 @@ public class Speedometer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        speed += playerController.GetAcceleration() * Time.deltaTime;
-        speed = Mathf.Clamp(speed, 0, speedMax);
+        if (LevelManager.instance.IsGameActive())
+        {
+            speed += playerController.GetAcceleration() * Time.deltaTime;
+            speed = Mathf.Clamp(speed, 0, speedMax);
 
-        //Change camera FOV
-        UpdateCameraFOV();
+            //Change camera FOV
+            UpdateCameraFOV();
 
-        //Rotate needle
-        needleTransform.eulerAngles = new Vector3(0, 0, GetSpeedRotation());
+            //Rotate needle
+            needleTransform.eulerAngles = new Vector3(0, 0, GetSpeedRotation());
 
-        //Check for game over
-        CheckForGameOver();
+            //Check for game over
+            CheckForGameOver();
+        }
     }
 
     private void CreateSpeedLabels()
@@ -109,7 +112,12 @@ public class Speedometer : MonoBehaviour
     {
         //If the speed reaches 0 or maximum, game over
         if (speed <= 0 || speed >= speedMax)
-            LevelManager.instance.GameOver();
+        {
+            //Move the player to the middle of the road
+            playerController.transform.position = 
+                new Vector3(playerController.transform.position.x, playerController.transform.position.y, 0);
+            LevelManager.instance.GameOver(playerController);
+        }
     }
 
     public float GetSpeed() => speed;

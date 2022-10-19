@@ -21,13 +21,16 @@ public class ObstacleSpawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        currentTimer += Time.deltaTime;
-
-        if(currentTimer >= currentSpawnTime)
+        if (LevelManager.instance.IsGameActive())
         {
-            SpawnObstacle();
-            currentTimer = 0;
-            currentSpawnTime = Random.Range(minSpawnInterval, maxSpawnInterval);
+            currentTimer += Time.deltaTime;
+
+            if (currentTimer >= currentSpawnTime)
+            {
+                SpawnObstacle();
+                currentTimer = 0;
+                currentSpawnTime = Random.Range(minSpawnInterval, maxSpawnInterval);
+            }
         }
     }
 

@@ -29,18 +29,21 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        Vector3 direction = new Vector3(0, 0, -movement.x).normalized;
-
-        rb.AddForce(direction * speed);
-
-        if (transform.position.z < -zRange)
+        if (LevelManager.instance.IsGameActive())
         {
-            rb.velocity = Vector3.zero;
-        }
+            Vector3 direction = new Vector3(0, 0, -movement.x).normalized;
 
-        if (transform.position.z > zRange)
-        {
-            rb.velocity = Vector3.zero;
+            rb.AddForce(direction * speed);
+
+            if (transform.position.z < -zRange)
+            {
+                rb.velocity = Vector3.zero;
+            }
+
+            if (transform.position.z > zRange)
+            {
+                rb.velocity = Vector3.zero;
+            }
         }
     }
 
