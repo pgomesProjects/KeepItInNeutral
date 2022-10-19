@@ -113,9 +113,11 @@ public class Speedometer : MonoBehaviour
         //If the speed reaches 0 or maximum, game over
         if (speed <= 0 || speed >= speedMax)
         {
-            //Move the player to the middle of the road
-            playerController.transform.position = 
-                new Vector3(playerController.transform.position.x, playerController.transform.position.y, 0);
+            //Move the players to the middle of the road
+            foreach(var i in FindObjectsOfType<PlayerController>())
+            {
+                i.transform.localPosition = new Vector3(i.transform.localPosition.x, i.transform.localPosition.y, 0);
+            }
             LevelManager.instance.GameOver(playerController);
         }
     }

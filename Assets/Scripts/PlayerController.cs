@@ -5,6 +5,7 @@ using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
+    public int playerIndex = 0;
     [SerializeField] private float zRange;
     [SerializeField] private float speed;
     private Vector2 movement;
@@ -35,12 +36,12 @@ public class PlayerController : MonoBehaviour
 
             rb.AddForce(direction * speed);
 
-            if (transform.position.z < -zRange)
+            if (transform.localPosition.z < -zRange)
             {
                 rb.velocity = Vector3.zero;
             }
 
-            if (transform.position.z > zRange)
+            if (transform.localPosition.z > zRange)
             {
                 rb.velocity = Vector3.zero;
             }

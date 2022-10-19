@@ -277,6 +277,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27be9c7362748da4e89206555cda519f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerIndex: 0
   zRange: 4
   speed: 20
   defaultAcceleration: 1
@@ -385,7 +386,7 @@ GameObject:
   - component: {fileID: 7617312207142263445}
   - component: {fileID: 7617312207142263446}
   m_Layer: 5
-  m_Name: UI
+  m_Name: PlayerUI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -40,6 +40,9 @@ public class ObstacleSpawner : MonoBehaviour
         float randomZ = Random.Range(-rangeZ, rangeZ);
         Vector3 randomPos = new Vector3(transform.position.x, transform.position.y, randomZ);
 
-        Instantiate(obstaclePrefabs[randomObstacle], randomPos, obstaclePrefabs[randomObstacle].transform.rotation);
+        GameObject newObstacle = Instantiate(obstaclePrefabs[randomObstacle], transform.parent, false);
+        //Move obstacle to parent and local position
+        newObstacle.transform.localPosition = randomPos;
+        newObstacle.transform.parent = transform;
     }
 }

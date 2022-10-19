@@ -98,4 +98,10 @@ public class VisualEffectsManager : MonoBehaviour
 
         cameraVolume.profile = null;
     }
+
+    public void InstantRemoveEffects()
+    {
+        cameraVolume.weight = 0;
+        cameraVolume.profile = null;
+    }
 }

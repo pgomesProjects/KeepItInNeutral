@@ -9,6 +9,8 @@ public class RoadScroll : MonoBehaviour
     private Renderer textureRend;
     private Material roadMat;
     [SerializeField] private Speedometer speedometer;
+    [SerializeField] private GameObject backgroundObject;
+    [SerializeField] private ObstacleSpawner obstacleSpawner;
 
     private float offset;
 
@@ -25,13 +27,24 @@ public class RoadScroll : MonoBehaviour
     {
         UpdateScrollSpeed();
         UpdateObstacleSpeeds();
+        UpdateBackgroundSpeeds();
         offset += currentScrollSpeed * Time.deltaTime;
         roadMat.mainTextureOffset = new Vector2(0, -offset);
     }
 
     private void UpdateObstacleSpeeds()
     {
-        foreach(var i in FindObjectsOfType<Obstacle>())
+        //Update the speeds of the obstacles in the obstacle spawner parent
+        foreach(var i in obstacleSpawner.GetComponentsInChildren<Obstacle>())
+        {
+            i.SetMoveSpeed(speedometer.GetSpeed());
+        }
+    }
+
+    private void UpdateBackgroundSpeeds()
+    {
+        //Update the speeds of the background pieces in the background parent
+        foreach (var i in backgroundObject.GetComponentsInChildren<BackgroundPiece>())
         {
             i.SetMoveSpeed(speedometer.GetSpeed());
         }

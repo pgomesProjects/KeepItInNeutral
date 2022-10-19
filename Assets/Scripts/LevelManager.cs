@@ -27,6 +27,9 @@ public class LevelManager : MonoBehaviour
     {
         isGameActive = false;
 
+        //Remove visual effects
+        FindObjectOfType<VisualEffectsManager>().InstantRemoveEffects();
+
         StartCoroutine(DeathAnimation(player));
     }
 
@@ -38,6 +41,18 @@ public class LevelManager : MonoBehaviour
         if (audioManager != null)
         {
             explosionObject.SetActive(true);
+            RectTransform explosionPos = explosionObject.GetComponent<RectTransform>();
+
+            switch (player.playerIndex)
+            {
+                case 1:
+                    explosionPos.localPosition = new Vector3(-480, explosionPos.localPosition.y, explosionPos.localPosition.z);
+                    break;
+                case 2:
+                    explosionPos.localPosition = new Vector3(480, explosionPos.localPosition.y, explosionPos.localPosition.z);
+                    break;
+            }
+
             audioManager.PlayOneShot("CarExplosion", 0.5f);
             Destroy(player.gameObject);
         }
