@@ -8,18 +8,8 @@ public class AudioManager : MonoBehaviour
     public AudioMixerGroup bgmMixer, sfxMixer;
     public Sound[] sounds;
 
-    public static AudioManager instance;
-
     void Awake()
     {
-        if (instance == null)
-        {
-            instance = this;
-            DontDestroyOnLoad(gameObject);
-        }
-        else
-            Destroy(gameObject);
-
         foreach (Sound s in sounds)
         {
             s.source = gameObject.AddComponent<AudioSource>();
@@ -80,10 +70,26 @@ public class AudioManager : MonoBehaviour
         s.source.Pause();
     }
 
+    public void PauseAllSounds()
+    {
+        foreach (Sound s in sounds)
+        {
+            s.source.Pause();
+        }
+    }
+
     public void Resume(string name) //Resumes audio that was paused
     {
         Sound s = Array.Find(sounds, sound => sound.name == name);
         s.source.UnPause();
+    }
+
+    public void ResumeAllSounds()
+    {
+        foreach (Sound s in sounds)
+        {
+            s.source.UnPause();
+        }
     }
 
     public void Stop(string name) //Stops a sound

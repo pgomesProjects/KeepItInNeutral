@@ -6,9 +6,9 @@ using UnityEngine.SceneManagement;
 
 public class MainMenuController : MonoBehaviour
 {
-    public enum TITLESCREEN {STARTSCREEN, MAINMENU, OPTIONS};
+    public enum TITLESCREEN {STARTSCREEN, MAINMENU, HOWTOPLAY, OPTIONS, CREDITS};
 
-    [SerializeField] private GameObject menuArrow;
+    private GameObject menuArrow;
     [SerializeField] private GameObject[] titleMenus;
 
     private PlayerControls playerControls;
@@ -16,13 +16,12 @@ public class MainMenuController : MonoBehaviour
     private void Awake()
     {
         playerControls = new PlayerControls();
-        playerControls.UI.Quit.performed += _ => QuitGame();
     }
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        FindObjectOfType<AudioManager>().Play("MainMenuOST", PlayerPrefs.GetFloat("BGMVolume", 0.5f));
     }
 
     private void OnEnable()
@@ -43,12 +42,51 @@ public class MainMenuController : MonoBehaviour
 
     public void OpenMainMenu(Button mainButton)
     {
-        //Hide the start menu and show the main menu
+        //Hide any other menu and show the main menu
         titleMenus[(int)TITLESCREEN.STARTSCREEN].SetActive(false);
+        titleMenus[(int)TITLESCREEN.HOWTOPLAY].SetActive(false);
+        titleMenus[(int)TITLESCREEN.OPTIONS].SetActive(false);
+        titleMenus[(int)TITLESCREEN.CREDITS].SetActive(false);
         titleMenus[(int)TITLESCREEN.MAINMENU].SetActive(true);
+
+        //Change the flavor text
+        FindObjectOfType<FlavorText>().DisplayRandomFlavorText();
 
         //Highlight the first button
         mainButton.Select();
+    }
+
+    public void OpenHowToPlayMenu(Button backButton)
+    {
+        //Hide the main menu and show the credits menu
+        titleMenus[(int)TITLESCREEN.MAINMENU].SetActive(false);
+        titleMenus[(int)TITLESCREEN.HOWTOPLAY].SetActive(true);
+
+        //Highlight the back button
+        backButton.Select();
+    }
+
+    public void OpenOptionsMenu(Slider optionSlider)
+    {
+        //Hide the main menu and show the options menu
+        titleMenus[(int)TITLESCREEN.MAINMENU].SetActive(false);
+        titleMenus[(int)TITLESCREEN.OPTIONS].SetActive(true);
+
+        //Refresh the options menu objects
+        FindObjectOfType<SettingsController>().RefreshMenu();
+
+        //Highlight the first slider
+        optionSlider.Select();
+    }
+
+    public void OpenCreditsMenu(Button backButton)
+    {
+        //Hide the main menu and show the credits menu
+        titleMenus[(int)TITLESCREEN.MAINMENU].SetActive(false);
+        titleMenus[(int)TITLESCREEN.CREDITS].SetActive(true);
+
+        //Highlight the back button
+        backButton.Select();
     }
 
     public void DisplaySelectArrow(float y)
@@ -57,8 +95,14 @@ public class MainMenuController : MonoBehaviour
         arrowTransform.anchoredPosition = new Vector2(arrowTransform.anchoredPosition.x, y);
     }
 
+    public void SetSelectArrow(GameObject arrow)
+    {
+        menuArrow = arrow;
+    }
+
     public void PlayGame(string levelName)
     {
+        FindObjectOfType<AudioManager>().Stop("MainMenuOST");
         SceneManager.LoadScene(levelName);
     }
 

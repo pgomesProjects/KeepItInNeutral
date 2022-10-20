@@ -6,11 +6,14 @@ using UnityEngine.SceneManagement;
 
 public class PauseController : MonoBehaviour
 {
+    public enum PAUSESCREEN { PAUSE, OPTIONS };
+
     PlayerControls playerControls;
 
     private bool isPaused;
-    [SerializeField] private GameObject pauseMenu;
-    [SerializeField] private GameObject menuArrow;
+    [SerializeField] private GameObject mainPauseMenu;
+    [SerializeField] private GameObject[] pauseMenus;
+    private GameObject menuArrow;
     [SerializeField] private Button firstSelectedButton;
 
     private void Awake()
@@ -23,13 +26,6 @@ public class PauseController : MonoBehaviour
     void Start()
     {
         isPaused = false;
-        StartCoroutine(PlayMusicAfterInit());
-    }
-
-    private IEnumerator PlayMusicAfterInit()
-    {
-        yield return new WaitForFixedUpdate();
-        FindObjectOfType<AudioManager>().Play("InGameOST", 1);
     }
 
     private void OnEnable()
@@ -42,16 +38,15 @@ public class PauseController : MonoBehaviour
         playerControls.Disable();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public void DisplaySelectArrow(float y)
     {
         RectTransform arrowTransform = menuArrow.GetComponent<RectTransform>();
         arrowTransform.anchoredPosition = new Vector2(arrowTransform.anchoredPosition.x, y);
+    }
+
+    public void SetSelectArrow(GameObject arrow)
+    {
+        menuArrow = arrow;
     }
 
     public void TogglePause()
@@ -59,23 +54,56 @@ public class PauseController : MonoBehaviour
         //If the game is active
         if (LevelManager.instance.IsGameActive())
         {
-            //Toggle pause menu
-            isPaused = !isPaused;
-
-            //If the game is paused
-            if (isPaused)
+            //If the pause menu is currently on the options menu, bring it back to the options menu
+            if (pauseMenus[(int)PAUSESCREEN.OPTIONS].activeInHierarchy)
             {
-                Time.timeScale = 0.0f;
-                pauseMenu.SetActive(true);
-                firstSelectedButton.Select();
+                CancelOptions();
             }
-            //If the game is resumed
             else
             {
-                pauseMenu.SetActive(false);
-                Time.timeScale = 1.0f;
+                //Toggle pause menu
+                isPaused = !isPaused;
+
+                //If the game is paused
+                if (isPaused)
+                {
+                    Time.timeScale = 0.0f;
+                    mainPauseMenu.SetActive(true);
+                    firstSelectedButton.Select();
+                    FindObjectOfType<AudioManager>().PauseAllSounds();
+                }
+                //If the game is resumed
+                else
+                {
+                    mainPauseMenu.SetActive(false);
+                    Time.timeScale = 1.0f;
+                    FindObjectOfType<AudioManager>().ResumeAllSounds();
+                }
             }
         }
+    }
+
+    public void OpenOptionsMenu(Slider optionSlider)
+    {
+        //Hide the main menu and show the options menu
+        pauseMenus[(int)PAUSESCREEN.PAUSE].SetActive(false);
+        pauseMenus[(int)PAUSESCREEN.OPTIONS].SetActive(true);
+
+        //Refresh the options menu objects
+        FindObjectOfType<SettingsController>().RefreshMenu();
+
+        //Highlight the first slider
+        optionSlider.Select();
+    }
+
+    public void CancelOptions()
+    {
+        //Hide the options menu and show the main menu
+        pauseMenus[(int)PAUSESCREEN.PAUSE].SetActive(true);
+        pauseMenus[(int)PAUSESCREEN.OPTIONS].SetActive(false);
+
+        //Highlight the first button
+        firstSelectedButton.Select();
     }
 
     public void ReturnToMain()

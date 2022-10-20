@@ -19,6 +19,7 @@ public class LevelManager : MonoBehaviour
     private void Start()
     {
         isGameActive = true;
+        FindObjectOfType<AudioManager>().Play("InGameOST", PlayerPrefs.GetFloat("BGMVolume", 0.5f));
     }
 
     public void GameOver(PlayerController player)
@@ -55,7 +56,7 @@ public class LevelManager : MonoBehaviour
                     break;
             }
 
-            FindObjectOfType<AudioManager>().PlayOneShot("CarExplosion", 0.5f);
+            FindObjectOfType<AudioManager>().PlayOneShot("CarExplosion", PlayerPrefs.GetFloat("SFXVolume", 0.5f));
             Destroy(player.gameObject);
         }
 
