@@ -123,4 +123,5 @@ public class Speedometer : MonoBehaviour
     }
 
     public float GetSpeed() => speed;
+    public float GetMaxSpeed() => speedMax;
 }

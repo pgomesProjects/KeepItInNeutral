@@ -10,17 +10,15 @@ public class LevelManager : MonoBehaviour
     [SerializeField] private GameObject gameOverScreen;
     [SerializeField] private GameObject explosionObject;
     private bool isGameActive;
-    private AudioManager audioManager;
 
     private void Awake()
     {
         instance = this;
-        isGameActive = true;
     }
 
     private void Start()
     {
-        audioManager = FindObjectOfType<AudioManager>();
+        isGameActive = true;
     }
 
     public void GameOver(PlayerController player)
@@ -30,6 +28,10 @@ public class LevelManager : MonoBehaviour
         //Remove visual effects
         FindObjectOfType<VisualEffectsManager>().InstantRemoveEffects();
 
+        //Remove obstacles
+        foreach (var i in FindObjectsOfType<Obstacle>())
+            Destroy(i.gameObject);
+
         StartCoroutine(DeathAnimation(player));
     }
 
@@ -38,7 +40,7 @@ public class LevelManager : MonoBehaviour
         yield return new WaitForSecondsRealtime(3);
 
         //Destroy the player and play explosion
-        if (audioManager != null)
+        if (FindObjectOfType<AudioManager>() != null)
         {
             explosionObject.SetActive(true);
             RectTransform explosionPos = explosionObject.GetComponent<RectTransform>();
@@ -53,7 +55,7 @@ public class LevelManager : MonoBehaviour
                     break;
             }
 
-            audioManager.PlayOneShot("CarExplosion", 0.5f);
+            FindObjectOfType<AudioManager>().PlayOneShot("CarExplosion", 0.5f);
             Destroy(player.gameObject);
         }
 

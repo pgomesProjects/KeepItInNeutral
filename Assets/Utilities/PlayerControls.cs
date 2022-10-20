@@ -71,6 +71,42 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Accelerate Boost P1"",
+                    ""type"": ""Button"",
+                    ""id"": ""3e4e7255-0fb2-4a83-ad1f-136fafa0f186"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Decelerate Boost P1"",
+                    ""type"": ""Button"",
+                    ""id"": ""fccc954f-e853-403e-ade2-dd1bccab9178"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Accelerate Boost P2"",
+                    ""type"": ""Button"",
+                    ""id"": ""49938204-9a7d-4f80-980e-e4781f4999c8"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Decelerate Boost P2"",
+                    ""type"": ""Button"",
+                    ""id"": ""27563862-2fed-4d20-abef-abe0637ac402"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -357,6 +393,94 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": ""Gamepad"",
                     ""action"": ""Pause"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""b39a3144-a133-4342-94f6-8a266c39bab9"",
+                    ""path"": ""<Keyboard>/z"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""Accelerate Boost P1"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""501d39ec-0e5a-4a3a-b2c1-721734a0cf8b"",
+                    ""path"": ""<Gamepad>/leftTrigger"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Accelerate Boost P1"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""3389fd0b-cb4a-4c25-a142-ad7a4d96a539"",
+                    ""path"": ""<Keyboard>/4"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""Decelerate Boost P2"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""925b61a7-66ba-402a-9b7f-8a7549f1f26d"",
+                    ""path"": ""<Gamepad>/rightTrigger"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Decelerate Boost P2"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""fd3a11d9-fb60-4ec5-8caf-688da82c9725"",
+                    ""path"": ""<Keyboard>/space"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""Decelerate Boost P1"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""2c604aa7-f1d0-4ee6-a532-ac00d2ba41e7"",
+                    ""path"": ""<Gamepad>/rightTrigger"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Decelerate Boost P1"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""9fb37685-d8a9-4b70-b7af-1490cbb5732f"",
+                    ""path"": ""<Keyboard>/7"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""Accelerate Boost P2"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""881e4da0-d005-40b6-ae0d-277c4d280c7a"",
+                    ""path"": ""<Gamepad>/leftTrigger"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Accelerate Boost P2"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -980,6 +1104,10 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
         m_Player_Look = m_Player.FindAction("Look", throwIfNotFound: true);
         m_Player_Fire = m_Player.FindAction("Fire", throwIfNotFound: true);
         m_Player_Pause = m_Player.FindAction("Pause", throwIfNotFound: true);
+        m_Player_AccelerateBoostP1 = m_Player.FindAction("Accelerate Boost P1", throwIfNotFound: true);
+        m_Player_DecelerateBoostP1 = m_Player.FindAction("Decelerate Boost P1", throwIfNotFound: true);
+        m_Player_AccelerateBoostP2 = m_Player.FindAction("Accelerate Boost P2", throwIfNotFound: true);
+        m_Player_DecelerateBoostP2 = m_Player.FindAction("Decelerate Boost P2", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -1057,6 +1185,10 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Look;
     private readonly InputAction m_Player_Fire;
     private readonly InputAction m_Player_Pause;
+    private readonly InputAction m_Player_AccelerateBoostP1;
+    private readonly InputAction m_Player_DecelerateBoostP1;
+    private readonly InputAction m_Player_AccelerateBoostP2;
+    private readonly InputAction m_Player_DecelerateBoostP2;
     public struct PlayerActions
     {
         private @PlayerControls m_Wrapper;
@@ -1066,6 +1198,10 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
         public InputAction @Look => m_Wrapper.m_Player_Look;
         public InputAction @Fire => m_Wrapper.m_Player_Fire;
         public InputAction @Pause => m_Wrapper.m_Player_Pause;
+        public InputAction @AccelerateBoostP1 => m_Wrapper.m_Player_AccelerateBoostP1;
+        public InputAction @DecelerateBoostP1 => m_Wrapper.m_Player_DecelerateBoostP1;
+        public InputAction @AccelerateBoostP2 => m_Wrapper.m_Player_AccelerateBoostP2;
+        public InputAction @DecelerateBoostP2 => m_Wrapper.m_Player_DecelerateBoostP2;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -1090,6 +1226,18 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                 @Pause.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPause;
                 @Pause.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPause;
                 @Pause.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPause;
+                @AccelerateBoostP1.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnAccelerateBoostP1;
+                @AccelerateBoostP1.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnAccelerateBoostP1;
+                @AccelerateBoostP1.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnAccelerateBoostP1;
+                @DecelerateBoostP1.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnDecelerateBoostP1;
+                @DecelerateBoostP1.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnDecelerateBoostP1;
+                @DecelerateBoostP1.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnDecelerateBoostP1;
+                @AccelerateBoostP2.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnAccelerateBoostP2;
+                @AccelerateBoostP2.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnAccelerateBoostP2;
+                @AccelerateBoostP2.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnAccelerateBoostP2;
+                @DecelerateBoostP2.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnDecelerateBoostP2;
+                @DecelerateBoostP2.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnDecelerateBoostP2;
+                @DecelerateBoostP2.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnDecelerateBoostP2;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -1109,6 +1257,18 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                 @Pause.started += instance.OnPause;
                 @Pause.performed += instance.OnPause;
                 @Pause.canceled += instance.OnPause;
+                @AccelerateBoostP1.started += instance.OnAccelerateBoostP1;
+                @AccelerateBoostP1.performed += instance.OnAccelerateBoostP1;
+                @AccelerateBoostP1.canceled += instance.OnAccelerateBoostP1;
+                @DecelerateBoostP1.started += instance.OnDecelerateBoostP1;
+                @DecelerateBoostP1.performed += instance.OnDecelerateBoostP1;
+                @DecelerateBoostP1.canceled += instance.OnDecelerateBoostP1;
+                @AccelerateBoostP2.started += instance.OnAccelerateBoostP2;
+                @AccelerateBoostP2.performed += instance.OnAccelerateBoostP2;
+                @AccelerateBoostP2.canceled += instance.OnAccelerateBoostP2;
+                @DecelerateBoostP2.started += instance.OnDecelerateBoostP2;
+                @DecelerateBoostP2.performed += instance.OnDecelerateBoostP2;
+                @DecelerateBoostP2.canceled += instance.OnDecelerateBoostP2;
             }
         }
     }
@@ -1278,6 +1438,10 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
         void OnLook(InputAction.CallbackContext context);
         void OnFire(InputAction.CallbackContext context);
         void OnPause(InputAction.CallbackContext context);
+        void OnAccelerateBoostP1(InputAction.CallbackContext context);
+        void OnDecelerateBoostP1(InputAction.CallbackContext context);
+        void OnAccelerateBoostP2(InputAction.CallbackContext context);
+        void OnDecelerateBoostP2(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {

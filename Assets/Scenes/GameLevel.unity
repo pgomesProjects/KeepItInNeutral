@@ -170,11 +170,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &32032959 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 32032959, guid: ddeb37605fb5b0f4f9e1c5402642d5a8, type: 3}
-  m_PrefabInstance: {fileID: 1814081239}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &51858189
 GameObject:
   m_ObjectHideFlags: 0
@@ -339,11 +334,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 51858189}
   m_CullTransparentMesh: 1
---- !u!1 &204192324 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 204192324, guid: ddeb37605fb5b0f4f9e1c5402642d5a8, type: 3}
-  m_PrefabInstance: {fileID: 1814081239}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &266665014
 GameObject:
   m_ObjectHideFlags: 0
@@ -1340,98 +1330,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1135440404}
   m_CullTransparentMesh: 1
---- !u!1 &1185077903
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1185077904}
-  - component: {fileID: 1185077905}
-  m_Layer: 0
-  m_Name: BackgroundSpawnerRight
-  m_TagString: Untagged
-  m_Icon: {fileID: -5397416234189338067, guid: 0000000000000000d000000000000000, type: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1185077904
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1185077903}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 200, y: 0, z: -8}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 32032959}
-  m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1185077905
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1185077903}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5a3e821e70f29a346a9e58cadaf5deb4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  backgroundPiecePrefabs:
-  - {fileID: 204192324}
---- !u!1 &1201473105
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1201473106}
-  - component: {fileID: 1201473107}
-  m_Layer: 0
-  m_Name: BackgroundSpawnerLeft
-  m_TagString: Untagged
-  m_Icon: {fileID: -5397416234189338067, guid: 0000000000000000d000000000000000, type: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1201473106
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1201473105}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 200, y: 0, z: 8}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 32032959}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1201473107
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1201473105}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5a3e821e70f29a346a9e58cadaf5deb4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  backgroundPiecePrefabs:
-  - {fileID: 204192324}
 --- !u!1 &1528054900
 GameObject:
   m_ObjectHideFlags: 0
@@ -2113,6 +2011,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1698425996, guid: ddeb37605fb5b0f4f9e1c5402642d5a8, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3815232956836495431, guid: ddeb37605fb5b0f4f9e1c5402642d5a8, type: 3}
       propertyPath: m_Name
       value: Player Setup

@@ -5,12 +5,14 @@ using UnityEngine;
 public class RoadScroll : MonoBehaviour
 {
     [SerializeField] private float scrollSpeed;
-    [SerializeField] private float currentScrollSpeed;
+    private float currentScrollSpeed;
+    [SerializeField] private float maxAnimSpeed = 2.5f;
     private Renderer textureRend;
     private Material roadMat;
     [SerializeField] private Speedometer speedometer;
     [SerializeField] private GameObject backgroundObject;
     [SerializeField] private ObstacleSpawner obstacleSpawner;
+    [SerializeField] private Animator carAnim;
 
     private float offset;
 
@@ -25,9 +27,14 @@ public class RoadScroll : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        UpdateScrollSpeed();
-        UpdateObstacleSpeeds();
-        UpdateBackgroundSpeeds();
+        if (LevelManager.instance.IsGameActive())
+        {
+            UpdateScrollSpeed();
+            UpdateObstacleSpeeds();
+            UpdateBackgroundSpeeds();
+            UpdateAnimSpeed();
+        }
+
         offset += currentScrollSpeed * Time.deltaTime;
         roadMat.mainTextureOffset = new Vector2(0, -offset);
     }
@@ -53,5 +60,11 @@ public class RoadScroll : MonoBehaviour
     private void UpdateScrollSpeed()
     {
         currentScrollSpeed = speedometer.GetSpeed() / (5 / scrollSpeed);
+    }
+
+    private void UpdateAnimSpeed()
+    {
+        float percent = (speedometer.GetSpeed() / speedometer.GetMaxSpeed());
+        carAnim.SetFloat("Speed", maxAnimSpeed * percent);
     }
 }
