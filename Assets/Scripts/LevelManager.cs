@@ -71,6 +71,7 @@ public class LevelManager : MonoBehaviour
 
         yield return new WaitForSecondsRealtime(seconds);
 
+        FindObjectOfType<AudioManager>().Stop("InGameOST");
         SceneManager.LoadScene("Titlescreen");
         Time.timeScale = 1.0f;
     }

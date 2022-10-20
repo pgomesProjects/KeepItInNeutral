@@ -88,6 +88,11 @@ MonoBehaviour:
   bgmMixer: {fileID: 5802316482864546721, guid: bcaf9082c276af04ab4459085b4cf341, type: 2}
   sfxMixer: {fileID: 24300002, guid: 042dffef9caf59b4782687230a6b43c6, type: 2}
   sounds:
+  - name: InGameOST
+    clip: {fileID: 8300000, guid: 252fda90c140b3b4cb098e922b77bb5a, type: 3}
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
   - name: CarExplosion
     clip: {fileID: 8300000, guid: b9ce14dd33c2c204a9076d4312a90c75, type: 3}
     pitch: 1

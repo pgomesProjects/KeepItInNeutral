@@ -23,6 +23,13 @@ public class PauseController : MonoBehaviour
     void Start()
     {
         isPaused = false;
+        StartCoroutine(PlayMusicAfterInit());
+    }
+
+    private IEnumerator PlayMusicAfterInit()
+    {
+        yield return new WaitForFixedUpdate();
+        FindObjectOfType<AudioManager>().Play("InGameOST", 1);
     }
 
     private void OnEnable()
@@ -74,6 +81,7 @@ public class PauseController : MonoBehaviour
     public void ReturnToMain()
     {
         //Go back to the main menu
+        FindObjectOfType<AudioManager>().Stop("InGameOST");
         Time.timeScale = 1.0f;
         SceneManager.LoadScene("Titlescreen");
     }
