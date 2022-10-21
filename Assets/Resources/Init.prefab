@@ -135,3 +135,38 @@ MonoBehaviour:
     pitch: 1
     loop: 0
     source: {fileID: 0}
+  - name: ButtonSelectSFX
+    clip: {fileID: 8300000, guid: 9e9fad28f50ef6f4f83b0382dc2545fc, type: 3}
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: ButtonClickSFX
+    clip: {fileID: 8300000, guid: 7b26211c7ef2c074580df9a5f56d631b, type: 3}
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Accelerate
+    clip: {fileID: 8300000, guid: 077260f5dda1d1e4092195786b587279, type: 3}
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Decelerate
+    clip: {fileID: 8300000, guid: c5f81b53378411e47a5474108b1204bd, type: 3}
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: DrivingLoop
+    clip: {fileID: 8300000, guid: b56f97fdfdfdbfc4fb04b71dec81a802, type: 3}
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
+  - name: MagicSFX
+    clip: {fileID: 8300000, guid: e52278ec4a816a94a928ffdba6590198, type: 3}
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: OilSplat
+    clip: {fileID: 8300000, guid: 419bec3463b49f5438b42cd70d6c388b, type: 3}
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}

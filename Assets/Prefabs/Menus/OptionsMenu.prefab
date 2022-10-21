@@ -835,6 +835,7 @@ GameObject:
   - component: {fileID: 1568023053350711880}
   - component: {fileID: 1568023053350711887}
   - component: {fileID: 1568023053350711886}
+  - component: {fileID: 7725099165664237126}
   m_Layer: 5
   m_Name: SFXSlider
   m_TagString: Untagged
@@ -969,6 +970,48 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+        - m_Target: {fileID: 7725099165664237126}
+          m_TargetAssemblyTypeName: ButtonSFX, Assembly-CSharp
+          m_MethodName: SoundOnSelect
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 4
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 7725099165664237126}
+          m_TargetAssemblyTypeName: ButtonSFX, Assembly-CSharp
+          m_MethodName: SoundOnClick
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+--- !u!114 &7725099165664237126
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1568023053350711881}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8246aac85aef6d4f9de08e6edf7f271, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  selectSFXName: ButtonSelectSFX
+  clickSFXName: ButtonClickSFX
 --- !u!1 &1568023053415379660
 GameObject:
   m_ObjectHideFlags: 0
@@ -1169,6 +1212,7 @@ GameObject:
   - component: {fileID: 1568023053545545491}
   - component: {fileID: 1568023053545545490}
   - component: {fileID: 1568023053545545489}
+  - component: {fileID: 143441691178753044}
   m_Layer: 5
   m_Name: MusicSlider
   m_TagString: Untagged
@@ -1303,6 +1347,48 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+        - m_Target: {fileID: 143441691178753044}
+          m_TargetAssemblyTypeName: ButtonSFX, Assembly-CSharp
+          m_MethodName: SoundOnSelect
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 4
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 143441691178753044}
+          m_TargetAssemblyTypeName: ButtonSFX, Assembly-CSharp
+          m_MethodName: SoundOnClick
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+--- !u!114 &143441691178753044
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1568023053545545500}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8246aac85aef6d4f9de08e6edf7f271, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  selectSFXName: ButtonSelectSFX
+  clickSFXName: ButtonClickSFX
 --- !u!1 &1568023053616307013
 GameObject:
   m_ObjectHideFlags: 0
@@ -1486,6 +1572,7 @@ GameObject:
   - component: {fileID: 1568023053734970609}
   - component: {fileID: 1568023053734970608}
   - component: {fileID: 1568023053734970615}
+  - component: {fileID: 6545438257592572149}
   m_Layer: 5
   m_Name: VSyncToggle
   m_TagString: Untagged
@@ -1615,6 +1702,48 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+        - m_Target: {fileID: 6545438257592572149}
+          m_TargetAssemblyTypeName: ButtonSFX, Assembly-CSharp
+          m_MethodName: SoundOnSelect
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 4
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 6545438257592572149}
+          m_TargetAssemblyTypeName: ButtonSFX, Assembly-CSharp
+          m_MethodName: SoundOnClick
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+--- !u!114 &6545438257592572149
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1568023053734970610}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8246aac85aef6d4f9de08e6edf7f271, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  selectSFXName: ButtonSelectSFX
+  clickSFXName: ButtonClickSFX
 --- !u!1 &1568023053765884232
 GameObject:
   m_ObjectHideFlags: 0
@@ -1764,6 +1893,7 @@ GameObject:
   - component: {fileID: 1568023053878714292}
   - component: {fileID: 1568023053878714293}
   - component: {fileID: 1568023053878714282}
+  - component: {fileID: 4718128715776676119}
   m_Layer: 5
   m_Name: BackButton
   m_TagString: Untagged
@@ -1927,6 +2057,48 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+        - m_Target: {fileID: 4718128715776676119}
+          m_TargetAssemblyTypeName: ButtonSFX, Assembly-CSharp
+          m_MethodName: SoundOnSelect
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 4
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 4718128715776676119}
+          m_TargetAssemblyTypeName: ButtonSFX, Assembly-CSharp
+          m_MethodName: SoundOnClick
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+--- !u!114 &4718128715776676119
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1568023053878714288}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8246aac85aef6d4f9de08e6edf7f271, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  selectSFXName: ButtonSelectSFX
+  clickSFXName: ButtonClickSFX
 --- !u!1 &1568023054052569933
 GameObject:
   m_ObjectHideFlags: 0
