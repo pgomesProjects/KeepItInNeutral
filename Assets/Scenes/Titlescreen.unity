@@ -3999,7 +3999,7 @@ MonoBehaviour:
   - Shia Kazing!
   - Speed, I Am Speed...
   - Tonight On Top Gear, Hammond Explodes!
-  - Don't Actually Try To Drive While In Neutral
+  - Don't Actually Try To Drive While In Neutral!
   - Gimme Fuel Gimme Fire Gimme That Which I Desire!
   - Like The Game, Among Us!
   - Maybe You Should Try Getting A Job!
@@ -4038,6 +4038,14 @@ MonoBehaviour:
   - Meeting Expectations!
   - What's Up, Doc?
   - This Text Is Dedicated To Jinnbow!
+  - Neutral? I Barely Know Her!
+  - At Least 2 Horsepower!
+  - I'm Using Tilt Controls!
+  - Manual Transmission!
+  - Speed Racer!!!
+  - Falcon Punch!
+  - Not Covered By Insurance!
+  - Starring Keanu Reeves and Sandra Bullock!
   flavorTextObject: {fileID: 1596233914}
 --- !u!95 &1596233917
 Animator:
