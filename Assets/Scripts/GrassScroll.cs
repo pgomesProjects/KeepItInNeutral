@@ -6,7 +6,6 @@ public class GrassScroll : MonoBehaviour
 {
     private Renderer textureRend2;
     private Material grassMat;
-    [SerializeField] private Speedometer speedometer;
     private float scrollSpeed;
 
     private float offset;
@@ -22,7 +21,10 @@ public class GrassScroll : MonoBehaviour
     {
         offset += scrollSpeed * Time.deltaTime;
         grassMat.mainTextureOffset = new Vector2(-offset, 0);
+    }
 
-        scrollSpeed = speedometer.GetSpeed() / (5 / 0.5f);
+    public void UpdateScrollSpeed(float speed)
+    {
+        scrollSpeed = speed;
     }
 }

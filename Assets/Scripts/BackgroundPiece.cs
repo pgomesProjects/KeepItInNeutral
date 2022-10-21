@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class BackgroundPiece : MonoBehaviour
 {
+    [SerializeField] private float distanceUntilNewSpawn;
     private float destroyX = -30;
     private float backgroundSpeed;
 
@@ -16,17 +17,16 @@ public class BackgroundPiece : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (LevelManager.instance.IsGameActive())
-        {
-            transform.position -= new Vector3(backgroundSpeed, 0, 0) * Time.deltaTime;
+        transform.position -= new Vector3(backgroundSpeed, 0, 0) * Time.deltaTime;
 
-            if (transform.localPosition.x <= destroyX)
-                Destroy(gameObject);
-        }
+        if (transform.localPosition.x <= destroyX)
+            Destroy(gameObject);
     }
 
     public void SetMoveSpeed(float speed)
     {
         backgroundSpeed = speed;
     }
+
+    public float DistanceUntilSpawn() => distanceUntilNewSpawn;
 }

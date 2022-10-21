@@ -729,7 +729,7 @@ MonoBehaviour:
     id, scelerisque dui. Ut felis sapien, semper quis lacinia id, consequat quis
     odio.
 
-    
+
 
 '
   m_isRightToLeft: 0
@@ -1185,7 +1185,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'How To Play
 
-    
+
 
 '
   m_isRightToLeft: 0
@@ -3619,7 +3619,7 @@ MonoBehaviour:
   m_fontColor32:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColor: {r: 0.26713246, g: 0.26713246, b: 0.6509434, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -3708,6 +3708,39 @@ MonoBehaviour:
   - Maybe You Should Try Getting A Job!
   - The Foam Pit Is NOT Safe!
   - Canceled On Twitter dot com!
+  - Astaghfirullah...
+  - Turbo, But With No Snails!
+  - You Just Lost The Game!
+  - Did You Know That You Have Rights?
+  - The Answer Is 42!
+  - 100% More Polygons!
+  - Moderately Attractive!
+  - Narutoooooo!
+  - Sasukeeeeee!
+  - 10 Herbs And Spices!
+  - Play 'Em Off, Keyboard Cat!
+  - Delux Edition!
+  - 100% VHS Ghost-Free!
+  - Han Shot First!
+  - Flatter Than Earth!
+  - A Skeleton Popped Out!
+  - Gargamel Plays It!
+  - By The Power Of Greyskull!
+  - Consummate Vs!
+  - Objection!
+  - The EDF Deploys!
+  - Sponsored By [REDACTED]!
+  - The Password Is 12345!
+  - Jump Up, Jump Up, And Get Down!
+  - Probably Not A Skinwalker!
+  - Lots Of Truthiness!
+  - Tyrian Would Love It!
+  - This Is My 4th and Final Form!
+  - Applebottom Jeans (Jeans)!
+  - Boots With The Fur!
+  - Meeting Expectations!
+  - What's Up, Doc?
+  - This Text Is Dedicated To Jinnbow!
   flavorTextObject: {fileID: 1596233914}
 --- !u!95 &1596233917
 Animator:

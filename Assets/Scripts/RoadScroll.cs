@@ -60,6 +60,7 @@ public class RoadScroll : MonoBehaviour
     private void UpdateScrollSpeed()
     {
         currentScrollSpeed = speedometer.GetSpeed() / (5 / scrollSpeed);
+        GetComponentInChildren<GrassScroll>().UpdateScrollSpeed(currentScrollSpeed);
     }
 
     private void UpdateAnimSpeed()

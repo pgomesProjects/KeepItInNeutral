@@ -267,6 +267,10 @@ PrefabInstance:
         </size>Power Boost Ready!'
       objectReference: {fileID: 0}
     - target: {fileID: 1698425996, guid: ddeb37605fb5b0f4f9e1c5402642d5a8, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1698425996, guid: ddeb37605fb5b0f4f9e1c5402642d5a8, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
@@ -828,6 +832,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1698425996, guid: ddeb37605fb5b0f4f9e1c5402642d5a8, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1698425996, guid: ddeb37605fb5b0f4f9e1c5402642d5a8, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0

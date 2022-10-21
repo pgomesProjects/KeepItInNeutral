@@ -38,7 +38,7 @@ public class ObstacleSpawner : MonoBehaviour
     {
         int randomObstacle = Random.Range(0, obstaclePrefabs.Length);
         float randomZ = Random.Range(-rangeZ, rangeZ);
-        Vector3 randomPos = new Vector3(transform.position.x, transform.position.y, randomZ);
+        Vector3 randomPos = new Vector3(transform.position.x, obstaclePrefabs[randomObstacle].transform.position.y, randomZ);
 
         GameObject newObstacle = Instantiate(obstaclePrefabs[randomObstacle], transform.parent, false);
         //Move obstacle to parent and local position

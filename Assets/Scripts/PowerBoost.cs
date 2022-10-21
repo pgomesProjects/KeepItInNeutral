@@ -12,7 +12,7 @@ public class PowerBoost : MonoBehaviour
     private float powerVal;
     private float increaseRate;
     private bool powerUpReady;
-    private float targetValue = 100;
+    private float targetValue = 14;
 
     private void Awake()
     {
@@ -34,7 +34,7 @@ public class PowerBoost : MonoBehaviour
             if (powerVal < targetValue)
             {
                 powerVal += (1 / increaseRate) * Time.deltaTime;
-                powerSlider.value = powerVal;
+                powerSlider.value = Mathf.Floor(powerVal);
             }
             else
             {

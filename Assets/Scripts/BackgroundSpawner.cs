@@ -6,37 +6,36 @@ public class BackgroundSpawner : MonoBehaviour
 {
     [SerializeField] private GameObject[] backgroundPiecePrefabs;
     public GameObject backgroundParent;
-    [SerializeField] private float spawnTimer;
-    public float timeToSpawn;
-    Vector3 offSet;
+
+    private BackgroundPiece mostRecentSpawn;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        SpawnBackgroundPiece();
     }
 
     // Update is called once per frame
     void Update()
     {
-        offSet = new Vector3 (0, 5, 0);
-        spawnTimer += 1 * Time.deltaTime;
-
-        timeToSpawn = Random.Range(1, 3);
-
-        if (spawnTimer >= timeToSpawn)
-        {
-            SpawnBackgroundPiece();
-            spawnTimer = 0;
-        }
+        CheckForNewSpawn();
     }
 
     private void SpawnBackgroundPiece()
     {
         int randomBackgroundPiece = Random.Range(0, backgroundPiecePrefabs.Length);
 
-        GameObject backgroundPiece = Instantiate(backgroundPiecePrefabs[randomBackgroundPiece], transform.position + offSet, transform.rotation);
+        Vector3 spawnPosition = new Vector3(transform.position.x, backgroundPiecePrefabs[randomBackgroundPiece].transform.position.y, transform.position.z);
+        mostRecentSpawn = Instantiate(backgroundPiecePrefabs[randomBackgroundPiece], spawnPosition, transform.rotation).GetComponent<BackgroundPiece>();
 
-        backgroundPiece.transform.parent = backgroundParent.transform;
+        mostRecentSpawn.transform.parent = backgroundParent.transform;
+    }
+
+    private void CheckForNewSpawn()
+    {
+        if(transform.position.x - mostRecentSpawn.transform.position.x > mostRecentSpawn.DistanceUntilSpawn())
+        {
+            SpawnBackgroundPiece();
+        }
     }
 }
